@@ -1,0 +1,24 @@
+server:
+  port: 8080 # Product Service chạy cổng 8080
+
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    # LƯU Ý: Dùng cổng 5433 (cổng ngoài) vì code chạy trên máy thật, DB chạy trong Docker
+    url: jdbc:postgresql://localhost:5433/product_db
+    username: admin
+    password: password123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      # update: Tự động tạo/sửa bảng trong DB theo code Java
+      # validate: Chỉ kiểm tra, không sửa DB (dùng cho Production)
+      ddl-auto: update
+    show-sql: true # Hiện câu lệnh SQL log ra màn hình để debug
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
