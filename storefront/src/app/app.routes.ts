@@ -1,18 +1,8 @@
 import { Routes } from '@angular/router';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 export const routes: Routes = [
-  {
-    path: 'products',
-    // Use lazy loading to load the standalone component
-    loadComponent: () =>
-      import('./features/products/feature/product-list.component').then(
-        (m) => m.ProductListComponent,
-      ),
-  },
-  // Redirect the root path to /products
-  {
-    path: '',
-    redirectTo: 'products',
-    pathMatch: 'full',
-  },
+  { path: '', component: ProductListComponent }, // Trang chủ là danh sách
+  { path: 'product/:id', component: ProductDetailComponent },
 ];
