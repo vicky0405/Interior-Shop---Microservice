@@ -1,0 +1,10 @@
+{
+  "name": "interior-shop-runner",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"npm:product\" \"npm:cart\" \"npm:frontend\"",
+    "product": "cd product-service && ./mvnw spring-boot:run",
+    "cart": "cd cart-service && ./mvnw spring-boot:run",
+    "frontend": "cd storefront && ng serve"
+  }
+}
